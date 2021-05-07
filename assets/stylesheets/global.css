@@ -1,0 +1,38 @@
+:root {
+  --font-black: #000;
+  --font-dark-grey: #111111;
+  --font-grey: #7D7D7D;
+  --font-light-grey: #B9B6B6;
+  --font-white: #ffffff;
+  --font-orange: #FF441F;
+  --background-white: #ffffff;
+  --background-blue: #3685e2;
+  --background-grey: #E5E5E5;
+  --border-orange: 1px solid #FF441F;
+  --border-black: 1px solid #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+body{
+  background: var(--background-grey) ;
+}
+
+a {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--font-blue);
+  text-decoration: none;
+}
+
+a i {
+  pointer-events: none;
+}
