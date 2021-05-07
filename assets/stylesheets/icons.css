@@ -1,0 +1,13 @@
+.icon--orange {
+  color: var(--font-orange);
+}
+.icon--grey {
+  color: var(--font-grey);
+}
+.icon--dark-grey{
+  color: var(--font-dark-grey)
+}
+
+.icon--medium {
+  font-size: 30px;
+}

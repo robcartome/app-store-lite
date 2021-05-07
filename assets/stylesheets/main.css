@@ -1,0 +1,12 @@
+.main-content{
+  max-width: 980px;
+  margin: 42px auto;
+  display: flex;
+  gap: 32px;
+}
+.main__products {
+  display: flex;
+  gap: 20px;
+  max-width: 664px;
+  flex-wrap: wrap;
+}

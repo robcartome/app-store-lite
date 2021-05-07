@@ -3,11 +3,13 @@
   --font-dark-grey: #111111;
   --font-grey: #7D7D7D;
   --font-light-grey: #B9B6B6;
+  --font-dark-grey:#595959;
   --font-white: #ffffff;
   --font-orange: #FF441F;
   --background-white: #ffffff;
   --background-blue: #3685e2;
   --background-grey: #E5E5E5;
+  --background-light-grey: #C3C0C0;
   --border-orange: 1px solid #FF441F;
   --border-black: 1px solid #000000;
 }
