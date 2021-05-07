@@ -8,7 +8,7 @@ export default function Main(parentElement) {
       let html = `
       <section></section>
       `;
-      this.parent.innerHTML = html;
+      /* this.parent.innerHTML = html; */
     }
 
   }

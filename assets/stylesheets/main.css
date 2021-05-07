@@ -1,12 +1,34 @@
+
+.content {
+  width: 100%;
+}
 .main-content{
   max-width: 980px;
-  margin: 42px auto;
   display: flex;
-  gap: 32px;
+  justify-content: center;
+  gap: 16px;
+  margin: auto;
+  padding: 18px;
 }
 .main__products {
   display: flex;
   gap: 20px;
   max-width: 664px;
   flex-wrap: wrap;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  max-width: 147px;
+  padding: 8px 12px;
+  background: var(--background-white);
+  border-radius: 4px;
+}
+
+.nav-category{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 8px 0px;
 }
