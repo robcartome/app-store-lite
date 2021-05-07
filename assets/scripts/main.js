@@ -6,9 +6,7 @@ export default function Main(parentElement) {
     selectedOption: "all",
     render: function () {
       let html = `
-      <section class="js-main-content">
-        <h2>BSALE STORE/h2>
-      </section>
+      <section></section>
       `;
       this.parent.innerHTML = html;
     }
