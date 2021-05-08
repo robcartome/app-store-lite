@@ -12,6 +12,7 @@
   font-weight: normal;
   font-family: 'Pacifico', cursive;
   color: var(--font-orange);
+  cursor: pointer;
 }
 
 .header__search{
