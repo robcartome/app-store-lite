@@ -3,9 +3,9 @@
   width: 100%;
 }
 .main-content{
-  max-width: 980px;
+  max-width: 870px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 16px;
   margin: auto;
   padding: 18px;
@@ -13,7 +13,7 @@
 .main__products {
   display: flex;
   gap: 20px;
-  max-width: 664px;
+  /* max-width: 680px; */
   flex-wrap: wrap;
 }
 
