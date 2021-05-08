@@ -39,7 +39,21 @@ export default function Main(parentElement) {
     },
     renderProducts: function () {
       const section = this.parent.querySelector(".js-main-products");
-      const product = STORE.products.map((product) => {
+      let dataProducts = STORE.products;
+      if (this.selectedCategory != null){
+        /* Probando aca deberia ir la llamada a la API enviando categoria */
+        dataProducts = [{
+          "id": 1,
+          "name": "Mochila de 20 x  40 x 30 para herramientas STANLEY ",
+          "url_image": "https://res.cloudinary.com/robcar/image/upload/v1613786249/samples/ecommerce/leather-bag-gray.jpg",
+          "price": 34.26,
+          "discount": 6,
+          "category_id": 1,
+          "created_at": "2021-05-05T17:13:37.342Z",
+          "updated_at": "2021-05-05T17:13:37.342Z"
+        }];
+      }
+      const product = dataProducts.map((product) => {
         return `
         <li class="card-product">
           <div class="card-product__head">
@@ -64,17 +78,14 @@ export default function Main(parentElement) {
     },
     navClickListener: function () {
       const options = this.parent.querySelectorAll(".js-category-option");
-      console.log("navs: ", options);
       options.forEach((element) => {
         element.addEventListener("click", (e) => {
-          console.log("elemtn: ", element, " target: ", e.target);
           e.preventDefault();
           if (element == e.target) {
             this.selectedCategory = element.dataset.value;
-            this.selectedOption = "";
+            this.selectedOption = null;
             this.render();
           }
-          console.log(this.selectedCategory);
         });
       });
     },
@@ -83,7 +94,7 @@ export default function Main(parentElement) {
     logoClickListener: function () {
       const logo = document.querySelector(".js-logo");
       logo.addEventListener("click", (e) => {
-        this.selectedCategory = "";
+        this.selectedCategory = null;
         this.selectedOption = "all";
         this.render();
       });
