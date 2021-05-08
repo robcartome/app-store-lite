@@ -14,14 +14,12 @@
   border-radius: 8px;
   width: 100%;
   height: 125px;
-  
 }
 
 .card-product__head img{
   border-radius: 8px;
   width: 100%;
   height: 100%;
-  
 }
 
 .card-product__body {
@@ -29,7 +27,6 @@
   font-size: 12px;
   line-height: 16px;
   color: var(--font-dark-grey);
-  
 }
 
 /* Init poner ... Puntos */
