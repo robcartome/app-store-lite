@@ -1,5 +1,5 @@
 import Main from "./assets/scripts/main.js";
-
+import STORE from "./assets/scripts/store.js";
 /*
  *
  * Main Functions

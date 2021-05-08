@@ -1,3 +1,4 @@
+import STORE from "./store.js";
 
 export default function Main(parentElement) {
   return {
@@ -10,66 +11,52 @@ export default function Main(parentElement) {
       <aside class="aside">
         <h3>Categorias</h3>
         <nav class="js-category-options nav-category">
-          <a class="js-category-option">Ferreteria</a>
-          <a class="js-category-option">Muebles</a>
-          <a class="js-category-option">Bebidas</a>
+
         </nav>
       </aside>
 
-      <ul class="js-products-container main__products">
-        <li class="card-product">
-          <div class="card-product__head">
-            <img>
-          </div>
-          <div class="card-product__body">
-            <h4>PISCO TRES ERRES 35°</h4>
-          </div>
-          <div class="card-product__footer">
-            <p>$ 15.45</p>
-            <i class="ri-shopping-cart-2-fill icon--dark-grey"></i>
-          </div>
-        </li>
-        <li class="card-product">
-          <div class="card-product__head">
-            <img>
-          </div>
-          <div class="card-product__body">
-            <h4>PISCO TRES ERRES 35°</h4>
-          </div>
-          <div class="card-product__footer">
-            <p>$ 15.45</p>
-            <i class="ri-shopping-cart-2-fill icon--dark-grey"></i>
-          </div>
-        </li>
-        <li class="card-product">
-          <div class="card-product__head">
-            <img>
-          </div>
-          <div class="card-product__body">
-            <h4>PISCO TRES ERRES 35°</h4>
-          </div>
-          <div class="card-product__footer">
-            <p>$ 15.45</p>
-            <i class="ri-shopping-cart-2-fill icon--dark-grey"></i>
-          </div>
-        </li>
-        <li class="card-product">
-          <div class="card-product__head">
-            <img>
-          </div>
-          <div class="card-product__body">
-            <h4>PISCO TRES ERRES 35°</h4>
-          </div>
-          <div class="card-product__footer">
-            <p>$ 15.45</p>
-            <i class="ri-shopping-cart-2-fill icon--dark-grey"></i>
-          </div>
-        </li>
+        <ul class="js-main-products main__products">
+
       </ul>
     </section>
       `;
       this.parent.innerHTML = html;
-    }
+      this.renderCategories();
+      this.renderProducts();
+    },
+    renderCategories: function(){
+      const section = this.parent.querySelector(".js-category-options");
+      console.log("entro a render product: ", section);
+      const categories = STORE.categories.map((category)=>{
+        return `
+        <a class="js-category-option">${category.name}</a>
+        `;
+      });
+      section.innerHTML = categories.join("");
+
+    },
+    renderProducts: function(){
+      const section = this.parent.querySelector(".js-main-products");
+      const product = STORE.products.map((product) => {
+        return `
+        <li class="card-product">
+          <div class="card-product__head">
+            <img src= "${product.url_image?product.url_image:"./assets/images/not-photo.svg"}">
+          </div>
+          <div class="card-product__body">
+            <h4>${product.name}</h4>
+          </div>
+          <div class="card-product__footer">
+            <p>$ ${product.price}</p>
+            <i class="ri-shopping-cart-2-fill icon--dark-grey"></i>
+          </div>
+        </li>
+        `
+      });
+      console.log("prud: ", product)
+      section.innerHTML = product.join("");
+    },
+
 
   }
 }
