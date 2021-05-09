@@ -26,6 +26,7 @@ export default function Main(parentElement) {
       this.renderProducts();
       this.navClickListener();
       this.logoClickListener();
+      this.searchProducts();
     },
     renderCategories: function () {
       const section = this.parent.querySelector(".js-category-options");
@@ -103,5 +104,9 @@ export default function Main(parentElement) {
         location.reload();
       });
     },
+
+    searchProducts: function (){
+      
+    }
   };
 }

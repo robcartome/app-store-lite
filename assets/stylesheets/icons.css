@@ -9,5 +9,9 @@
 }
 
 .icon--medium {
+  font-size: 20px;
+}
+
+.icon--medium-big {
   font-size: 30px;
 }

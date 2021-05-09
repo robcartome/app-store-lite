@@ -15,6 +15,10 @@ async function init() {
 
   const productsService = new ProductsService();
   const products = await productsService.list()
+
+  // Me QUEDE ACA, probe para llamar las busquedas a la API, por nombre senviando un parametro query.
+  // implementar al hacer click en la lupa para que busque. pst: lupa mas grande meter en un boton
+  // 1er opcion enviar por un form, los datos. 
   // const products = await productsService.searchProducts("clavo");
   STORE.products = products.data;
 
