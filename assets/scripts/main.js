@@ -1,24 +1,25 @@
 import STORE from "./store.js";
+import ProductsService from "./services/products_service.js";
 
 export default function Main(parentElement) {
   return {
     parent: document.querySelector(parentElement),
-    selectedCategory: null,
-    selectedOption: "all",
+    selectedCategory: null, // Para controlar que si hay una categoria seleccionada
+    selectedOption: "all", // Controlar que no se llame dos veces la misma categoria
     render: function () {
       let html = `
       <section class="js-main-content main-content">
-      <aside class="aside">
-        <h3>Categorias</h3>
-        <nav class="js-category-options nav-category">
+        <aside class="aside">
+          <h3>Categorias</h3>
+          <nav class="js-category-options nav-category">
 
-        </nav>
-      </aside>
+          </nav>
+        </aside>
 
         <ul class="js-main-products main__products">
 
-      </ul>
-    </section>
+        </ul>
+      </section>
       `;
       this.parent.innerHTML = html;
       this.renderCategories();
@@ -30,30 +31,16 @@ export default function Main(parentElement) {
       const section = this.parent.querySelector(".js-category-options");
       const categories = STORE.categories.map((category) => {
         const selected =
-          category.name == this.selectedCategory ? "category--selected " : "";
+          category.id == this.selectedCategory ? "category--selected" : "";
         return `
-        <a class="js-category-option ${selected}" href="#${category.name}" data-value="${category.name}">${category.name}</a>
+        <a class="js-category-option ${selected}" href="#${category.name}" data-value="${category.name}" data-id="${category.id}">${category.name}</a>
         `;
       });
       section.innerHTML = categories.join("");
     },
     renderProducts: function () {
       const section = this.parent.querySelector(".js-main-products");
-      let dataProducts = STORE.products;
-      if (this.selectedCategory != null){
-        /* Probando aca deberia ir la llamada a la API enviando categoria */
-        dataProducts = [{
-          "id": 1,
-          "name": "Mochila de 20 x  40 x 30 para herramientas STANLEY ",
-          "url_image": "https://res.cloudinary.com/robcar/image/upload/v1613786249/samples/ecommerce/leather-bag-gray.jpg",
-          "price": 34.26,
-          "discount": 6,
-          "category_id": 1,
-          "created_at": "2021-05-05T17:13:37.342Z",
-          "updated_at": "2021-05-05T17:13:37.342Z"
-        }];
-      }
-      const product = dataProducts.map((product) => {
+      const product = STORE.products.map((product) => {
         return `
         <li class="card-product">
           <div class="card-product__head">
@@ -79,12 +66,27 @@ export default function Main(parentElement) {
     navClickListener: function () {
       const options = this.parent.querySelectorAll(".js-category-option");
       options.forEach((element) => {
-        element.addEventListener("click", (e) => {
+        element.addEventListener("click", async (e) => {
           e.preventDefault();
           if (element == e.target) {
-            this.selectedCategory = element.dataset.value;
-            this.selectedOption = null;
-            this.render();
+            this.selectedCategory = element.dataset.id;
+            // Comprobar si ya se hizo click en esa categoria | Solo Llamar a la API una vez por click
+            if (this.selectedOption != this.selectedCategory) {
+              const isSelected = this.parent.querySelector(
+                ".category--selected"
+              );
+              console.log("isselcet: ", isSelected);
+              const productsService = new ProductsService();
+              const productsByCategory = await productsService.showProductsByCategories(
+                this.selectedCategory
+              );
+              STORE.products = productsByCategory.data;
+              this.selectedOption = element.dataset.id;
+            }
+            // no usamos render() de todo para no consumir muchos  recursos
+            this.renderCategories();
+            this.renderProducts();
+            this.navClickListener();
           }
         });
       });
@@ -93,10 +95,12 @@ export default function Main(parentElement) {
     /* Reinicia todo al hacer click en el logo de header */
     logoClickListener: function () {
       const logo = document.querySelector(".js-logo");
-      logo.addEventListener("click", (e) => {
+      logo.addEventListener("click", async (e) => {
         this.selectedCategory = null;
-        this.selectedOption = "all";
-        this.render();
+        const productsService = new ProductsService();
+        const products = await productsService.list();
+        STORE.products = products.data;
+        location.reload();
       });
     },
   };

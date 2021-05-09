@@ -9,21 +9,23 @@ function ProductsService() {
 }
 
 // Creando objetos con funciones - Uso de [[Prototype]]
-ProductsService.prototype.list = () => 
+ProductsService.prototype.list = () =>
   apiFetch(`${BASE_URL}/api/v1/products`, {
-    method: "GET"
-  },
-);
+    method: "GET",
+  });
 
-ProductsService.prototype.showProduct = ($idProd) => 
-  apiFetch(`${BASE_URL}/api/v1/products/${idProd}`, {
-    method: "GET"
-  },
-);
+ProductsService.prototype.showProduct = ($idProd) =>
+  apiFetch(`${BASE_URL}/api/v1/products/${$idProd}`, {
+    method: "GET",
+  });
 
-ProductsService.prototype.showProductsByCategories = ($idCategory) => 
-  apiFetch(`${BASE_URL}/api/v1/categories/${idCategory}/products`, {
-    method: "GET"
-  },
-);
+ProductsService.prototype.showProductsByCategories = ($idCategory) =>
+  apiFetch(`${BASE_URL}/api/v1/categories/${$idCategory}/products`, {
+    method: "GET",
+  });
+
+ProductsService.prototype.searchProducts = ($nameSearch) =>
+  apiFetch(`${BASE_URL}/api/v1/products?query=${$nameSearch}`, {
+    method: "GET",
+  });
 export default ProductsService;

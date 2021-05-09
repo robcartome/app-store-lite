@@ -14,9 +14,10 @@ async function init() {
   STORE.categories = categories.data;
 
   const productsService = new ProductsService();
-  const products = await productsService.list();
+  const products = await productsService.list()
+  // const products = await productsService.searchProducts("clavo");
   STORE.products = products.data;
-  // console.log(products)
+
   main.render();
 }
 
