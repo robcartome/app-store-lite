@@ -106,7 +106,24 @@ export default function Main(parentElement) {
     },
 
     searchProducts: function (){
-      
+      const formSearch = document.querySelector(".js-form-search");
+      if(formSearch){
+        formSearch.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          try{
+            const productsService = new ProductsService();
+            const products = await productsService.searchProducts(formSearch.product_name.value);
+            console.log("Envio submit: ",products);
+            STORE.products = products.data;
+            this.renderCategories();
+            this.renderProducts();
+            this.navClickListener();
+          }catch(e){
+            console.log(e);
+            alert(e);
+          }
+        })
+      }
     }
   };
 }
