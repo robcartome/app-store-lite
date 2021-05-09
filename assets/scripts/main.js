@@ -61,7 +61,6 @@ export default function Main(parentElement) {
         </li>
         `;
       });
-      /* console.log("prud: ", product) */
       section.innerHTML = product.join("");
     },
     navClickListener: function () {
@@ -71,7 +70,7 @@ export default function Main(parentElement) {
           e.preventDefault();
           if (element == e.target) {
             this.selectedCategory = element.dataset.id;
-            // Comprobar si ya se hizo click en esa categoria | Solo Llamar a la API una vez por click
+            // Verifica el click en esa categoria | Llamar a la API una vez por click
             if (this.selectedOption != this.selectedCategory) {
               const isSelected = this.parent.querySelector(
                 ".category--selected"
@@ -84,7 +83,7 @@ export default function Main(parentElement) {
               STORE.products = productsByCategory.data;
               this.selectedOption = element.dataset.id;
             }
-            // no usamos render() de todo para no consumir muchos  recursos
+            // no usamos render() para no consumir muchos recursos
             this.renderCategories();
             this.renderProducts();
             this.navClickListener();
@@ -105,25 +104,26 @@ export default function Main(parentElement) {
       });
     },
 
-    searchProducts: function (){
+    searchProducts: function () {
       const formSearch = document.querySelector(".js-form-search");
-      if(formSearch){
+      if (formSearch) {
         formSearch.addEventListener("submit", async (e) => {
           e.preventDefault();
-          try{
+          try {
             const productsService = new ProductsService();
-            const products = await productsService.searchProducts(formSearch.product_name.value);
-            console.log("Envio submit: ",products);
+            const products = await productsService.searchProducts(
+              formSearch.product_name.value
+            );
             STORE.products = products.data;
             this.renderCategories();
             this.renderProducts();
             this.navClickListener();
-          }catch(e){
+          } catch (e) {
             console.log(e);
             alert(e);
           }
-        })
+        });
       }
-    }
+    },
   };
 }

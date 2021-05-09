@@ -8,18 +8,15 @@ import ProductsService from "./assets/scripts/services/products_service.js";
  *
  */
 async function init() {
-  const main = Main(".js-content")
+  const main = Main(".js-content");
+  /* Llamamos a la API para categories */
   const categoriesService = new CategoriesService();
   const categories = await categoriesService.list();
   STORE.categories = categories.data;
 
+  /* Llamamos a la API para products */
   const productsService = new ProductsService();
-  const products = await productsService.list()
-
-  // Me QUEDE ACA, probe para llamar las busquedas a la API, por nombre senviando un parametro query.
-  // implementar al hacer click en la lupa para que busque. pst: lupa mas grande meter en un boton
-  // 1er opcion enviar por un form, los datos. 
-  // const products = await productsService.searchProducts("clavo");
+  const products = await productsService.list();
   STORE.products = products.data;
 
   main.render();
