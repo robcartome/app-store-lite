@@ -19,7 +19,7 @@ Version V1:
 La aplicación está estructurada utilizando
 `javascript`,`css`.
 
-## Conexion con el API rest
+## Conexion con la API rest
 API rest - HTTPS github:                
 https://github.com/robcartome/api-store-lite.git                      
                  
