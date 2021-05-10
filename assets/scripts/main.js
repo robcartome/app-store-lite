@@ -72,10 +72,6 @@ export default function Main(parentElement) {
             this.selectedCategory = element.dataset.id;
             // Verifica el click en esa categoria | Llamar a la API una vez por click
             if (this.selectedOption != this.selectedCategory) {
-              const isSelected = this.parent.querySelector(
-                ".category--selected"
-              );
-              console.log("isselcet: ", isSelected);
               const productsService = new ProductsService();
               const productsByCategory = await productsService.showProductsByCategories(
                 this.selectedCategory
