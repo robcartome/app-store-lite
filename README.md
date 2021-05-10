@@ -28,4 +28,4 @@ https://shielded-hollows-90471.herokuapp.com/
 https://shielded-hollows-90471.herokuapp.com/api/v1/products
 
 ## ScreenShot
-<img src="/Screenshot STORE ONLINE Project.png" alt="screen"/>
+<img src="/ScreenshotStoreOnline.png" alt="screen"/>
