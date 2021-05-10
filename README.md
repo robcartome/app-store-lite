@@ -8,9 +8,9 @@ Tienda online lite que despliegue todos los productos y productos agrupados por 
 - Mostrar todos los productos de una API.
 - Buscador de productos en la tienda online.
 - Mostrar productos por categoria seleccionada.
+- Al hacer click en el Logo vuelve a la pagina de inicio.             
 
 ### Tecnologías usadas
-
 Version V1:
 - Se uso javascript puro y css.
 - Comunicacion al APi rest con fetch.
