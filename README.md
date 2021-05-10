@@ -29,3 +29,7 @@ https://shielded-hollows-90471.herokuapp.com/api/v1/products
 
 ## ScreenShot
 <img src="/ScreenshotStoreOnline.png" alt="screen"/>
+
+## Autores ✒️
+
+* **Robert Tolentino** - *Trabajo Inicial* - [robcartome](https://github.com/robcartome)
