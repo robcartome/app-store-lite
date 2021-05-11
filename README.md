@@ -20,8 +20,8 @@ La aplicación está estructurada utilizando
 `javascript`,`css`.
 
 ## Conexion con la API rest
-API rest - HTTPS github:                
-https://github.com/robcartome/api-store-lite.git                      
+Code API rest - HTTPS github:                
+https://github.com/robcartome/api-store-lite-mysql                     
                  
 URL's BASE de la API:                  
 https://store-lite.herokuapp.com/  
@@ -30,6 +30,7 @@ https://store-lite.herokuapp.com/api/v1/products
 
 ## ScreenShot
 <img src="/ScreenshotStoreOnline.png" alt="screen"/>
+![image](/ScreenshotStoreV2.png = 250x250)
 
 ## Autores ✒️
 
