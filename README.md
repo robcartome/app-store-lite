@@ -24,9 +24,9 @@ API rest - HTTPS github:
 https://github.com/robcartome/api-store-lite.git                      
                  
 URL's BASE de la API:                  
-https://shielded-hollows-90471.herokuapp.com/     
+https://store-lite.herokuapp.com/  
 URL para ver todos los productos:                  
-https://shielded-hollows-90471.herokuapp.com/api/v1/products           
+https://store-lite.herokuapp.com/api/v1/products           
 
 ## ScreenShot
 <img src="/ScreenshotStoreOnline.png" alt="screen"/>

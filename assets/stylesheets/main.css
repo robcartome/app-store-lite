@@ -2,12 +2,19 @@
 .content {
   width: 100%;
 }
+
 .main-content{
   max-width: 870px;
   display: flex;
   gap: 16px;
   margin: auto;
   padding: 18px;
+}
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .main__products {
   display: flex;

@@ -1,0 +1,29 @@
+.paginate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  list-style-type: none;
+  padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+  background: var(--background-white);
+  border-radius: 32px;
+}
+.paginate  li {
+    width: auto;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 15px 20px;
+  }
+
+.paginate li:hover{
+  background-color: var(--font-orange);
+  color: var(--background-white);
+  border-radius: 50px;
+}
+

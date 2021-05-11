@@ -23,7 +23,6 @@
 }
 
 .card-product__body {
-  /* height: 2rem; */
   font-weight: 600px;
   font-size: 12px;
   line-height: 16px;
@@ -35,7 +34,7 @@
  
 }
 
-/* Init poner ... Puntos */
+/* Init poner ... Puntos si el nombre es muy largo*/
 .card-product__body h4 {
   background: #fff;
   max-height: 2rem;

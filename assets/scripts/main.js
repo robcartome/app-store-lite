@@ -15,16 +15,24 @@ export default function Main(parentElement) {
 
           </nav>
         </aside>
+        <div class="main-container">
+          <ul class="js-main-products main__products">
 
-        <ul class="js-main-products main__products">
+          </ul>
 
-        </ul>
+          <ul class="js-nav-paginate paginate">
+
+            
+          </ul>
+        </div>
       </section>
       `;
       this.parent.innerHTML = html;
       this.renderCategories();
       this.renderProducts();
+      this.renderPagination();
       this.navClickListener();
+      this.navPages();
       this.logoClickListener();
       this.searchProducts();
     },
@@ -63,6 +71,21 @@ export default function Main(parentElement) {
       });
       section.innerHTML = product.join("");
     },
+    renderPagination: function () {
+      const paginate = this.parent.querySelector(".js-nav-paginate");
+      let optionPages = ` 
+        ${
+          STORE.previous == ""
+            ? ""
+            : '<li class="js-prev-page"> <i class="ri-arrow-left-s-fill"></i>Anterior </li>'
+        }
+        ${
+          STORE.next == ""
+            ? ""
+            : '<li class="js-next-page">Siguiente<i class="ri-arrow-right-s-fill"></i></li>'
+        }`;
+      paginate.innerHTML = optionPages;
+    },
     navClickListener: function () {
       const options = this.parent.querySelectorAll(".js-category-option");
       options.forEach((element) => {
@@ -77,15 +100,62 @@ export default function Main(parentElement) {
                 this.selectedCategory
               );
               STORE.products = productsByCategory.data;
+              STORE.next = productsByCategory.next;
+              STORE.previous = productsByCategory.previous;
               this.selectedOption = element.dataset.id;
             }
             // no usamos render() para no consumir muchos recursos
             this.renderCategories();
             this.renderProducts();
+            this.renderPagination();
             this.navClickListener();
+            this.navPages();
           }
         });
       });
+    },
+    navPages: function () {
+      const optionsPages = this.parent.querySelector(".js-nav-paginate");
+      const prevPage = optionsPages.querySelector(".js-prev-page");
+      const nextPage = optionsPages.querySelector(".js-next-page");
+      if (STORE.previous != "") {
+        prevPage.addEventListener("click", async (e) => {
+          e.preventDefault();
+          if (e.target) {
+            const productsService = new ProductsService();
+            const productsByPage = await productsService.nextPreviousPage(
+              STORE.previous
+            );
+            STORE.products = productsByPage.data;
+            STORE.next = productsByPage.next;
+            STORE.previous = productsByPage.previous;
+            this.renderCategories();
+            this.renderProducts();
+            this.renderPagination();
+            this.navClickListener();
+            this.navPages();
+          }
+        });
+      }
+      if (STORE.next != "") {
+        nextPage.addEventListener("click", async (e) => {
+          e.preventDefault();
+          if (e.target) {
+            const productsService = new ProductsService();
+            const productsByPage = await productsService.nextPreviousPage(
+              STORE.next
+            );
+            STORE.products = productsByPage.data;
+            STORE.next = productsByPage.next;
+            STORE.previous = productsByPage.previous;
+            this.renderCategories();
+            this.renderProducts();
+            this.renderPagination();
+            this.navClickListener();
+            this.navPages();
+          }
+        });
+      }
     },
 
     /* Reinicia todo al hacer click en el logo de header */
