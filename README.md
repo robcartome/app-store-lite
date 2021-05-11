@@ -29,8 +29,8 @@ URL para ver todos los productos:
 https://store-lite.herokuapp.com/api/v1/products           
 
 ## ScreenShot
-<img src="/ScreenshotStoreOnline.png" alt="screen"/>
-![image](/ScreenshotStoreV2.png = 250x250)
+<img src="/ScreenshotStoreV2.png" alt="screen"/>
+
 
 ## Autores ✒️
 
