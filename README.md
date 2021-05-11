@@ -1,7 +1,7 @@
 # Store Lite Rob
 Tienda online lite que despliegue todos los productos y productos agrupados por la categoría a la que pertenecen. Incluye un buscador que esta implementado a nivel del servidor - consulta a la API.
 
-![status](https://img.shields.io/badge/status-running-green.svg?colorB=00C106) ![readme](https://img.shields.io/badge/readme-OK-green.svg?colorB=00C106) ![database](https://img.shields.io/badge/database-OK-green.svg?colorB=00C106) ![commits](https://img.shields.io/badge/commits-21-blue.svg) ![tag](https://img.shields.io/badge/tag-v0.1-orange.svg)
+![status](https://img.shields.io/badge/status-running-green.svg?colorB=00C106) ![readme](https://img.shields.io/badge/readme-OK-green.svg?colorB=00C106) ![database](https://img.shields.io/badge/database-OK-green.svg?colorB=00C106) ![commits](https://img.shields.io/badge/commits-36-blue.svg) ![tag](https://img.shields.io/badge/tag-v0.1-orange.svg)
 ![techs](https://img.shields.io/badge/techs-javascript—css-yellow.svg)
 
 ### Contenido y características 🚀
