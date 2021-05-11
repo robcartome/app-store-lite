@@ -18,7 +18,9 @@ async function init() {
   const productsService = new ProductsService();
   const products = await productsService.list();
   STORE.products = products.data;
-
+  STORE.next = products.next;
+  STORE.previous = products.previous;
+  console.log(STORE)
   main.render();
 }
 

@@ -28,4 +28,11 @@ ProductsService.prototype.searchProducts = ($nameSearch) =>
   apiFetch(`${BASE_URL}/api/v1/products?query=${$nameSearch}`, {
     method: "GET",
   });
+
+ProductsService.prototype.nextPreviousPage = ($url) => 
+apiFetch(`${$url}`, {
+  method: "GET",
+});
+
+
 export default ProductsService;

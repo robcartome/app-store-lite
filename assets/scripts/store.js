@@ -1,4 +1,6 @@
 const STORE = {
+  next: "",
+  previous: "",
   categories: [{
     "id": 1,
     "name": "Ferreteria",
