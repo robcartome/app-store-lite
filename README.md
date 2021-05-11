@@ -8,9 +8,9 @@ Tienda online lite que despliegue todos los productos y productos agrupados por 
 - Mostrar todos los productos de una API.
 - Buscador de productos en la tienda online.
 - Mostrar productos por categoria seleccionada.
+- Al hacer click en el Logo vuelve a la pagina de inicio.             
 
 ### Tecnologías usadas
-
 Version V1:
 - Se uso javascript puro y css.
 - Comunicacion al APi rest con fetch.
@@ -19,7 +19,7 @@ Version V1:
 La aplicación está estructurada utilizando
 `javascript`,`css`.
 
-## Conexion con el API rest
+## Conexion con la API rest
 API rest - HTTPS github:                
 https://github.com/robcartome/api-store-lite.git                      
                  
